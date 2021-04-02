@@ -10,7 +10,7 @@ for item in ff:
     # print(out)
     data.append(out.split(" "))
 data = np.array(data).astype(np.float)
-# print(data.shape)
+print(data.shape)
 
 Y = data[:, -1]
 X = data[:, 0:-1]
