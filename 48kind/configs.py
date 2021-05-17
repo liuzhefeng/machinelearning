@@ -6,9 +6,9 @@ class Config():
         # 字典数
         self.n_vocab = 1002
         # 词向量维度
-        self.embed_size = 256
+        self.embed_size = 128
         # 隐藏层大小
-        self.hidden_size = 256
+        self.hidden_size = 128
         # LSTM层数
         self.num_layers = 2
         # 丢弃率
@@ -16,7 +16,7 @@ class Config():
         # 类别
         self.num_classes = 47
         # 每句话处理的长度
-        self.pad_size = 128
+        self.pad_size = 64
         # mini batch
         self.batch_size = 32
         # 随机化数据

@@ -1,3 +1,5 @@
+import time
+
 import torch
 import torch.nn as nn
 from torch import optim
@@ -7,7 +9,7 @@ from configs import Config
 from torch.utils.data import DataLoader
 
 cfg = Config()
-data_path = "data/label_review.csv"
+data_path = "data/label_review_test.csv"
 data_stop_path = "data/hit_stopword"
 dict_path = "data/voc_dict"
 
@@ -19,7 +21,9 @@ print(cfg.pad_size)
 
 model_text_cls = Model(cfg)
 # model_text_cls.to(cfg.devices)
-model_text_cls.load_state_dict(torch.load("model1/700.pth"))
+model_text_cls.load_state_dict(torch.load("model1/12.pth"))
+
+start = time.time()
 
 for i, batch in enumerate(train_dataloader):
     label, data = batch
@@ -29,3 +33,6 @@ for i, batch in enumerate(train_dataloader):
     pred = torch.argmax(pred_softmax, dim=1)
     out = torch.eq(pred, label)
     print("准确率：", out.sum() * 1.0 / pred.size()[0])
+
+end=time.time()
+print(end-start)

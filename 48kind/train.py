@@ -40,5 +40,5 @@ for epoch in range(cfg.num_epochs):
         optimizer.step()
 
     scheduler.step()
-    if epoch % 100 == 0:
+    if epoch % 2 == 0:
         torch.save(model_text_cls.state_dict(), "model1/{}.pth".format(epoch))
